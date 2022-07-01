@@ -2,8 +2,17 @@ public class Transcript {
     private String audio_url;
     private String id;
     private String status;
+    private String language_code;
     private String text;
     private String error;
+
+    public String getLanguage_code() {
+        return language_code;
+    }
+
+    public void setLanguage_code(String language_code) {
+        this.language_code = language_code;
+    }
 
     public String getError() {
         return error;
