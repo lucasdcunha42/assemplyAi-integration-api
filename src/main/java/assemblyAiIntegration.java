@@ -1,5 +1,7 @@
 import com.google.gson.Gson;
 
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -47,5 +49,15 @@ public class assemblyAiIntegration {
         System.out.println("Transcript Completed");
         System.out.println(transcript.getText());
         System.out.println(transcript.getError());
+
+        String textOutput = transcript.getText();
+        OutputStream out = new FileOutputStream("AudioTranscripOutput.txt");
+
+        byte[] dataBytes = textOutput.getBytes();
+
+        out.write(dataBytes);
+        System.out.println("Data is written to the file.");
+        out.close();
+
     }
 }
