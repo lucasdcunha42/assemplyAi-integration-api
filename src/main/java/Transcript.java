@@ -3,6 +3,15 @@ public class Transcript {
     private String id;
     private String status;
     private String text;
+    private String error;
+
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
+    }
 
     public String getStatus() {
         return status;
