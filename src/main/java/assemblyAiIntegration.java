@@ -24,7 +24,26 @@ public class assemblyAiIntegration {
 
         System.out.println(postResponse.body());
 
+        transcript = gson.fromJson(postResponse.body(),Transcript.class);
 
+        System.out.println(transcript.getId());
 
+        HttpRequest getRequest = HttpRequest.newBuilder()
+                .uri(new URI("https://api.assemblyai.com/v2/transcript" + transcript.getId()))
+                .header("Authorization", Constants.API_KEY)
+                .GET()
+                .build();
+        while (true) {
+            HttpResponse<String> getResponse = httpClient.send(getRequest, HttpResponse.BodyHandlers.ofString());
+            transcript = gson.fromJson(postResponse.body(), Transcript.class);
+            System.out.println(transcript.getStatus());
+
+            if ("completed".equals(transcript.getStatus()) || "error".equals(transcript.getStatus())){
+                break;
+            }
+            Thread.sleep(1000);
+        }
+        System.out.println("Transcrip Completed");
+        System.out.println(transcript.getText());
     }
 }
