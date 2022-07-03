@@ -10,7 +10,7 @@ import java.net.http.HttpResponse;
 public class assemblyAiIntegration {
     public static void main(String[] args) throws Exception {
         Transcript transcript = new Transcript();
-        transcript.setAudio_url("https://github.com/lucasdcunha42/assemplyAi-integration-api/blob/master/src/main/resources/5-AudioTest%20-%20Lula%20-%20pt.mp3?raw=true");
+        transcript.setAudio_url("https://github.com/lucasdcunha42/assemplyAi-integration-api/blob/master/src/main/resources/6-AudioTest%20-%20VideoFile.mp4?raw=true");
         transcript.setLanguage_code("pt");
         Gson gson = new Gson();
         String jsonRequest = gson.toJson(transcript);
