@@ -10,7 +10,7 @@ import java.net.http.HttpResponse;
 public class assemblyAiIntegration {
     public static void main(String[] args) throws Exception {
         Transcript transcript = new Transcript();
-        transcript.setAudio_url("https://github.com/lucasdcunha42/assemplyAi-integration-api/blob/master/src/main/resources/6-AudioTest%20-%20VideoFile.mp4?raw=true");
+        transcript.setAudio_url("https://github.com/lucasdcunha42/assemplyAi-integration-api/blob/master/src/main/resources/jaime2.ogg?raw=true");
         transcript.setLanguage_code("pt");
         Gson gson = new Gson();
         String jsonRequest = gson.toJson(transcript);
@@ -51,7 +51,7 @@ public class assemblyAiIntegration {
         System.out.println(transcript.getError());
 
         String textOutput = transcript.getText();
-        OutputStream out = new FileOutputStream("AudioTranscripOutput.txt");
+        OutputStream out = new FileOutputStream("AudioTranscripOutputOggFile2.txt");
 
         byte[] dataBytes = textOutput.getBytes();
 
